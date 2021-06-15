@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Coronavirus_Statistics.Services
 {
-    interface ICoronavirusCountryService
+    public interface ICoronavirusCountryService
     {
         Task<IEnumerable<CoronavirusCountry>> GetTopCases(int amountOfCountries);
 

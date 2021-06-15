@@ -1,4 +1,5 @@
 ﻿using Coronavirus_Statistics.Services.API;
+using Coronavirus_Statistics.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,11 +15,13 @@ namespace Coronavirus_Statistics
     /// </summary>
     public partial class App : Application
     {
-        protected async override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            APICoronavirusCountryService countryService = new APICoronavirusCountryService();
-
-            var result = await countryService.GetTopCases(10);
+            MainWindow mainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel()
+            };
+            mainWindow.Show();
 
             base.OnStartup(e);
         }
